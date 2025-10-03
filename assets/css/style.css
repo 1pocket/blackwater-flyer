@@ -1,11 +1,72 @@
-/* The Brooklyn Blackwater Flyer — 1920s bulletin / train + park ranger vibe */
+/* === The Blackwater Flyer — 1920s bulletin / train + park ranger vibe === */
 :root{
   --ink:#1C1C1A;
   --paper:#F5F1E6;      /* cream newsprint */
   --pine:#2F5130;       /* ranger green */
   --cedar:#4D3B2F;      /* signpost brown */
   --accent:#9B3E2A;     /* barn red (sparingly) */
+  --radius:12px;
+  --radius-lg:16px;
+  --container:1040px;
 }
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Libre Baskerville', Georgia, 'Times New Roman', serif;line-height:1.65}
+
+/* --- Utility --- */
+.smallcaps{font-variant:small-caps;letter-spacing:.12em}
+.center{text-align:center}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* --- Layout --- */
+.container{max-width:var(--container);margin:0 auto;padding:0 14px 40px}
+.grid{display:grid;grid-template-columns:1fr;gap:22px}
+@media(min-width:900px){.grid{grid-template-columns:1.2fr .8fr}}
+
+/* --- Masthead (plaque) --- */
+.masthead{max-width:var(--container);margin:26px auto 10px;padding:12px;border:4px solid var(--ink);border-radius:var(--radius-lg);
+  background:repeating-linear-gradient(0deg,var(--paper),var(--paper) 10px,#f8f4ea 11px,#f8f4ea 12px);
+  box-shadow:0 2px 0 var(--ink)}
+.masthead-inner{display:flex;justify-content:center;align-items:center}
+.logo-img{display:block;max-width:100%;height:auto;/* control plaque height on large screens */}
+@media(min-width:800px){.logo-img{max-height:140px}}
+@media(max-width:799px){.masthead{margin:18px auto 8px}}
+.masthead .strapline{margin:6px auto 6px;text-align:center;color:var(--cedar);font-family:'Special Elite', monospace;font-size:13px}
+
+/* --- Nav: ticket style --- */
+.nav{max-width:var(--container);margin:8px auto 26px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center;align-items:center}
+.ticket{padding:9px 14px;border:2px dashed var(--cedar);border-radius:10px;font-family:'Special Elite', monospace;text-decoration:none;color:var(--ink);
+  background:linear-gradient(180deg,#fffef8,var(--paper));box-shadow:0 1px 0 var(--cedar)}
+.ticket:hover{transform:translateY(-1px);box-shadow:0 2px 0 var(--cedar)}
+
+/* --- Cards / bulletin panels --- */
+.card{border:3px solid var(--ink);border-radius:var(--radius);background:#fffef8;box-shadow:0 2px 0 var(--ink)}
+.card + .card{margin-top:18px}
+.card-header{padding:14px;border-bottom:2px solid var(--ink);
+  background:repeating-linear-gradient(90deg,#fffef8,#fffef8 5px,#fff 6px,#fff 7px)}
+.card-title{font-family:'Playfair Display', Georgia, serif;font-size:28px;margin:0;letter-spacing:1px}
+.card-meta{font-family:'Special Elite', monospace;color:var(--cedar);margin-top:6px;font-size:13px}
+
+.card-body{padding:18px;font-size:18px;line-height:1.75}
+.dropcap:first-letter{float:left;font-family:'Playfair Display', serif;font-size:64px;line-height:0.9;padding-right:10px;color:var(--pine);text-transform:uppercase}
+
+/* --- Sidebar note board --- */
+.note{border:2px solid var(--cedar);border-radius:var(--radius);background:#fff9f0;padding:14px;font-family:'Special Elite', monospace;font-size:15px}
+.note h4{margin:0 0 6px 0;font-size:16px;letter-spacing:1px}
+.note ul{margin:0;padding-left:18px}
+.note li{margin:6px 0}
+
+/* --- Ornament & footer --- */
+.orn{display:block;margin:12px auto 16px;height:14px;width:auto}
+.footer{max-width:var(--container);margin:16px auto 36px;padding:10px 14px;border-top:2px dashed var(--cedar);color:var(--cedar);font-family:'Special Elite', monospace}
+
+/* --- Links --- */
+a{color:var(--ink)}
+a:hover{text-decoration:underline}
+
+/* --- Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@600;700;800&family=Special+Elite&display=swap');
+
 
 *{box-sizing:border-box}
 html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family: 'Libre Baskerville', Georgia, 'Times New Roman', serif;}
