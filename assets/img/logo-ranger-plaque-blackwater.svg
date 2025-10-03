@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="260" viewBox="0 0 1200 260" xmlns="http://www.w3.org/2000/svg">
+  <!-- Wood plaque base -->
+  <rect x="10" y="10" width="1180" height="240" rx="22" fill="#F5F1E6" stroke="#4D3B2F" stroke-width="8"/>
+  <!-- Bolt heads -->
+  <g fill="#4D3B2F">
+    <circle cx="40" cy="40" r="6"/><circle cx="1160" cy="40" r="6"/>
+    <circle cx="40" cy="220" r="6"/><circle cx="1160" cy="220" r="6"/>
+  </g>
+  <!-- Pines -->
+  <g transform="translate(50,60)" fill="#2F5130">
+    <polygon points="0,120 40,40 80,120" />
+    <polygon points="10,104 40,36 70,104" />
+    <rect x="38" y="120" width="4" height="24" fill="#4D3B2F"/>
+  </g>
+  <!-- Title (Blackwater only) -->
+  <g transform="translate(160,50)" fill="#1C1C1A">
+    <text x="0" y="52" font-family="Georgia, 'Times New Roman', serif" font-size="58" font-weight="700" letter-spacing="3">THE BLACKWATER</text>
+    <text x="0" y="120" font-family="Georgia, 'Times New Roman', serif" font-size="86" font-weight="800" letter-spacing="6">FLYER</text>
+    <text x="0" y="155" font-family="monospace" font-size="16" fill="#4D3B2F" letter-spacing="2">Park Ranger Notices &amp; Rail Yard Scribbles</text>
+  </g>
+</svg>
