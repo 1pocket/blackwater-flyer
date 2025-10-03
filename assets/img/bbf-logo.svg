@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="820" height="180" viewBox="0 0 820 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="2" y="2" width="816" height="176" rx="10" stroke="#1C1C1A" stroke-width="4" fill="#F5F1E6"/>
+  <g transform="translate(30,30)" fill="#2F5130">
+    <polygon points="20,80 40,40 60,80" />
+    <polygon points="25,70 40,35 55,70" />
+    <rect x="38" y="80" width="4" height="14" fill="#4D3B2F"/>
+    <polygon points="70,90 90,50 110,90" />
+    <polygon points="75,80 90,45 105,80" />
+    <rect x="88" y="90" width="4" height="14" fill="#4D3B2F"/>
+  </g>
+  <g transform="translate(160,70)" fill="#1C1C1A">
+    <rect x="0" y="30" width="120" height="20" rx="3"/>
+    <rect x="10" y="10" width="30" height="20" rx="3"/>
+    <rect x="45" y="0" width="35" height="30" rx="3"/>
+    <circle cx="20" cy="60" r="10" fill="#1C1C1A"/>
+    <circle cx="60" cy="60" r="10" fill="#1C1C1A"/>
+    <circle cx="100" cy="60" r="10" fill="#1C1C1A"/>
+  </g>
+  <g transform="translate(320,40)">
+    <text x="0" y="40" font-family="Georgia, 'Times New Roman', serif" font-size="30" font-weight="700" fill="#1C1C1A" letter-spacing="2">
+      THE BROOKLYN BLACKWATER
+    </text>
+    <text x="0" y="85" font-family="Georgia, 'Times New Roman', serif" font-size="54" font-weight="800" fill="#1C1C1A" letter-spacing="4">
+      FLYER
+    </text>
+    <text x="0" y="112" font-family="monospace" font-size="14" fill="#4D3B2F" letter-spacing="1.5">
+      River & Rail Dispatches · Est. 1920s Spirit
+    </text>
+  </g>
+</svg>
