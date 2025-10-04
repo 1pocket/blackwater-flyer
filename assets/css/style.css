@@ -316,6 +316,14 @@ main,.content,.page-body{margin-top:8px}
   .bf-art{border-left:0; border-top:2px solid var(--ink)}
 }
 
+/* highlight current nav item */
+.pill[aria-current="page"], .pill.is-active{
+  border-style:solid;
+  background:var(--pine);
+  color:#fff;
+}
+
+
 
 
 
