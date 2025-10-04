@@ -149,4 +149,16 @@ main,.content,.page-body{margin-top:8px}
   border-width: 6px;
 }
 
+/* Remove the outer masthead frame so only the plaque shows */
+.masthead {
+  border: none !important;
+  background: none !important;
+  box-shadow: none !important;
+  padding: 0 16px;
+  margin: 28px auto 14px;
+  display: flex;
+  justify-content: center;
+}
+
+
 
