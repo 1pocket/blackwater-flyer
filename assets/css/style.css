@@ -71,3 +71,73 @@ a:hover{text-decoration:underline}
 
 /* --- Google Fonts --- */
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@600;700;800&family=Special+Elite&display=swap');
+
+/* ===== Masthead (single plaque) ===== */
+.masthead{
+  margin: 28px auto 18px;
+  display: flex;
+  justify-content: center;
+  padding: 0 16px;
+}
+
+/* one big plaque, centered */
+.plaque{
+  width: min(1100px, 96vw);
+  background: #efe8da;               /* parchment-ish */
+  border: 6px solid #3a2d23;         /* dark trim */
+  border-radius: 22px;
+  box-shadow: 0 3px 0 #3a2d23, 0 10px 24px rgba(0,0,0,.12);
+  padding: 24px 28px 18px;
+  text-align: center;
+  position: relative;
+}
+
+/* make the logo fill the plaque neatly */
+.plaque-logo{
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto 6px;
+}
+
+/* small subline under the logo */
+.plaque-tag{
+  margin: 2px 0 0;
+  font-family: "Crimson Pro", Georgia, serif;
+  letter-spacing: .12em;
+  font-size: 0.9rem;
+  text-transform: none;
+  opacity: .85;
+}
+
+/* nav pills just under the plaque */
+.flyer-nav{
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 6px 16px 22px;
+}
+
+.pill{
+  border: 2px dashed #3a2d23;
+  border-radius: 12px;
+  padding: 8px 14px;
+  text-decoration: none;
+  font-weight: 600;
+  color: #2b231c;
+  background: #efe8da;
+}
+.pill:hover{ transform: translateY(-1px); }
+
+/* ===== Remove the extra frame + 1920s line ===== */
+/* If your old layout had an outer frame/ribbon/subline, hide them: */
+.mastframe, .mast-subline, .ribbon, .header-ribbon { display: none !important; }
+
+/* ===== (Optional) Hide the duplicate sidebar header on the right ===== */
+/* If you see a second "The Blackwater Flyer" block on the right column, hide that container. */
+.mast-aside, .hero-aside, .site-rail, .sidebar-title { display: none !important; }
+
+/* spacing fix before first article card */
+main, .content, .page-body { margin-top: 8px; }
+
