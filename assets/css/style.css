@@ -160,5 +160,37 @@ main,.content,.page-body{margin-top:8px}
   justify-content: center;
 }
 
+/* --- Use ONLY the inner frame baked into the SVG logo --- */
+.masthead{
+  margin:28px auto 14px;
+  padding:0 16px;
+  display:flex;
+  justify-content:center;
+  border:none !important;
+  background:none !important;
+  box-shadow:none !important;
+}
+
+/* remove outer box from the wrapper */
+.plaque{
+  width:min(1200px,98vw);
+  padding:0 !important;
+  border:none !important;
+  background:none !important;
+  box-shadow:none !important;
+}
+
+/* scale the SVG nicely */
+.plaque-logo{
+  display:block;
+  width:100%;
+  height:auto;
+  margin:0 auto;
+}
+
+/* if any strapline text exists under the SVG, hide it (SVG already has one) */
+.plaque-tag{ display:none !important; }
+
+
 
 
