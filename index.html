@@ -13,22 +13,21 @@
   <header class="masthead">
     <div class="plaque">
       <img src="/assets/img/logo.svg" alt="The Blackwater Flyer" class="plaque-logo">
-      
     </div>
   </header>
 
- <nav class="flyer-nav">
-  <a class="pill" href="/">Front Page</a>
-  <a class="pill" href="/posts/latest.html">Latest Dispatch</a>
-  <a class="pill" href="/posts/schedule.html">The Schedule</a>
-  <a class="pill" href="/posts/classifieds.html">The Classifieds</a>
-  <a class="pill" href="/posts/letters.html">Letters to the Editor</a>
-  <!-- Add the class here 👇 -->
-  <a class="pill" href="/posts/bigfoot-sightings.html">Bigfoot Sightings</a>
-</nav>
-
+  <!-- Nav pills -->
+  <nav class="flyer-nav">
+    <a class="pill" href="/">Front Page</a>
+    <a class="pill" href="/posts/latest.html">Latest Dispatch</a>
+    <a class="pill" href="/posts/schedule.html">The Schedule</a>
+    <a class="pill" href="/posts/classifieds.html">The Classifieds</a>
+    <a class="pill" href="/posts/letters.html">Letters to the Editor</a>
+    <a class="pill" href="/posts/bigfoot-sightings.html">Bigfoot Sightings</a>
+  </nav>
 
   <main class="container grid">
+    <!-- LEFT COLUMN -->
     <section>
       <div class="card">
         <div class="card-header">
@@ -54,72 +53,43 @@
             <li><a href="/posts/first-dispatch.html">On Quiet Work &amp; Loud Rivers — a beginner’s timetable</a></li>
             <li><a href="/posts/park-ranger-tools.html">Tool Lists of Dubious Usefulness (Park Ranger Edition)</a></li>
             <li><a href="/posts/two-streets.html">How to Disappear in a Town of Two Streets</a></li>
-
           </ul>
         </div>
       </div>
     </section>
-    <section class="bf-wrap" aria-label="Bigfoot feature">
-  <div class="bf-card">
-    <div class="bf-ink">
-      <h2 class="bf-hed">Bigfoot Sightings — Tucker County</h2>
-      <p class="bf-sub">Ranger logs, back-road hearsay, and other polite mysteries</p>
-      <p class="bf-txt">
-        Footprints like frying pans at the frostline. A spruce that took a step.
-        In a place where fog edits the river, we keep a ledger of the unconfirmed—
-        short dispatches filed from Davis, Thomas, Blackwater Falls, Canaan Valley, and Dolly Sods.
-      </p>
-      <a class="bf-cta" href="/posts/bigfoot-sightings.html">Open the Sightings Ledger</a>
-    </div>
 
-    <!-- Inline woodcut-style sketch (no external file needed) -->
-    <div class="bf-art" aria-hidden="true">
-      <svg viewBox="0 0 320 360" xmlns="http://www.w3.org/2000/svg" role="img">
-        <title>Bigfoot sketch</title>
-        <defs>
-          <filter id="roughen" x="-10%" y="-10%" width="120%" height="120%">
-            <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="1" result="noise"/>
-            <feDisplacementMap in="SourceGraphic" in2="noise" scale="0.6"/>
-          </filter>
-        </defs>
-        <!-- Ground / trees (light pen lines) -->
-        <g stroke="#1C1C1A" stroke-width="1.2" fill="none" opacity="0.6" filter="url(#roughen)">
-          <path d="M10 300 C80 290, 120 310, 310 298"/>
-          <path d="M30 260 l8 -38 l8 38 m-8 -38 v78"/>
-          <path d="M280 248 l7 -30 l7 30 m-7 -30 v64"/>
-        </g>
-        <section class="bf-wrap" aria-label="Bigfoot feature">
-  <aside class="bf-aside">
-    <div class="bf-stamp" aria-hidden="true">
-      <!-- Minimal footprint badge -->
-      <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg" role="img">
-        <title>Footprint badge</title>
-        <g fill="#1C1C1A">
-          <!-- heel -->
-          <ellipse cx="42" cy="58" rx="20" ry="16"/>
-          <!-- toes -->
-          <circle cx="63" cy="36" r="6"/>
-          <circle cx="53" cy="28" r="5.5"/>
-          <circle cx="41" cy="24" r="5"/>
-          <circle cx="29" cy="26" r="4.8"/>
-          <circle cx="21" cy="33" r="4.5"/>
-        </g>
-      </svg>
-    </div>
+    <!-- RIGHT COLUMN -->
+    <section>
+      <!-- Bigfoot sidebar card (single source of truth) -->
+      <aside class="bf-aside" aria-label="Bigfoot feature">
+        <div class="bf-stamp" aria-hidden="true">
+          <!-- Minimal footprint badge -->
+          <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg" role="img">
+            <title>Footprint badge</title>
+            <g fill="#1C1C1A">
+              <ellipse cx="42" cy="58" rx="20" ry="16"/>
+              <circle cx="63" cy="36" r="6"/>
+              <circle cx="53" cy="28" r="5.5"/>
+              <circle cx="41" cy="24" r="5"/>
+              <circle cx="29" cy="26" r="4.8"/>
+              <circle cx="21" cy="33" r="4.5"/>
+            </g>
+          </svg>
+        </div>
 
-    <h2 class="bf-hed">Bigfoot Sightings — Tucker County</h2>
-    <p class="bf-sub">Ranger logs, back-road hearsay, and other polite mysteries</p>
-    <p class="bf-txt">
-      Footprints like frying pans at the frostline. A spruce that took a step.  
-      A ledger of the unconfirmed from Davis, Thomas, Blackwater Falls, Canaan Valley, and Dolly Sods.
-    </p>
-    <a class="bf-cta" href="/posts/bigfoot-sightings.html">Open the Sightings Ledger</a>
-  </aside>
-</section>
+        <h2 class="bf-hed">Bigfoot Sightings — Tucker County</h2>
+        <p class="bf-sub">Ranger logs, back-road hearsay, and other polite mysteries</p>
+        <p class="bf-txt">
+          Footprints like frying pans at the frostline. A spruce that took a step.
+          In a place where fog edits the river, we keep a ledger of the unconfirmed—short dispatches filed from
+          Davis, Thomas, Blackwater Falls, Canaan Valley, and Dolly Sods.
+        </p>
+        <a class="bf-cta" href="/posts/bigfoot-sightings.html">Open the Sightings Ledger</a>
+      </aside>
 
+      <div style="height:12px"></div>
 
-
-    <aside>
+      <!-- Sidebar notes -->
       <div class="note">
         <h4>Notices &amp; Warnings</h4>
         <ul>
@@ -137,7 +107,7 @@
           A small publication for eccentric practicality, Appalachian wit, and the occasional blueprint scribbled on butcher paper.
         </p>
       </div>
-    </aside>
+    </section>
   </main>
 
   <footer class="footer">
