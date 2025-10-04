@@ -1,4 +1,8 @@
 /* === The Blackwater Flyer — 1920s bulletin / train + park ranger vibe === */
+
+/* Google Fonts first (must be before rules) */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@600;700;800&family=Special+Elite&display=swap');
+
 :root{
   --ink:#1C1C1A;
   --paper:#F5F1E6;      /* cream newsprint */
@@ -6,138 +10,109 @@
   --cedar:#4D3B2F;      /* signpost brown */
   --accent:#9B3E2A;     /* barn red (sparingly) */
   --radius:12px;
-  --radius-lg:16px;
+  --radius-lg:22px;
   --container:1040px;
 }
 
+/* Base */
 *{box-sizing:border-box}
-html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);
-  font-family:'Libre Baskerville', Georgia, 'Times New Roman', serif;line-height:1.65}
-
-/* --- Utility --- */
+html,body{
+  margin:0;padding:0;background:var(--paper);color:var(--ink);
+  font-family:'Libre Baskerville', Georgia, 'Times New Roman', serif;line-height:1.65
+}
+a{color:var(--ink)} a:hover{text-decoration:underline}
 .smallcaps{font-variant:small-caps;letter-spacing:.12em}
-.center{text-align:center}
-.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
-/* --- Layout --- */
+/* Layout */
 .container{max-width:var(--container);margin:0 auto;padding:0 14px 40px}
 .grid{display:grid;grid-template-columns:1fr;gap:22px}
 @media(min-width:900px){.grid{grid-template-columns:1.2fr .8fr}}
 
-/* --- Masthead (plaque) --- */
-.masthead{max-width:var(--container);margin:20px auto 6px;padding:12px;border:4px solid var(--ink);
+/* ===== Masthead (single plaque) ===== */
+.masthead{
+  margin:28px auto 14px;
+  display:flex;justify-content:center;padding:0 16px;
+}
+.plaque{
+  width:min(1100px,96vw);
+  background:#efe8da;                  /* parchment */
+  border:6px solid #3a2d23;            /* dark trim */
   border-radius:var(--radius-lg);
-  background:repeating-linear-gradient(0deg,var(--paper),var(--paper) 10px,#f8f4ea 11px,#f8f4ea 12px);
-  box-shadow:0 2px 0 var(--ink)}
-.masthead-inner{display:flex;justify-content:center;align-items:center}
-.logo-img{display:block;max-width:100%;height:auto}
-@media(min-width:800px){.logo-img{max-height:140px}}
-.masthead .strapline{margin:6px auto 0;text-align:center;color:var(--cedar);
-  font-family:'Special Elite', monospace;font-size:13px}
+  box-shadow:0 3px 0 #3a2d23, 0 10px 24px rgba(0,0,0,.12);
+  padding:28px 28px 20px;
+  text-align:center;
+}
+.plaque-logo{display:block;width:100%;height:auto;margin:0 auto 8px}
+.plaque-tag{
+  margin:0;font-family:"Crimson Pro", Georgia, serif;
+  letter-spacing:.12em;font-size:.95rem;opacity:.85
+}
 
-/* --- Nav: ticket style --- */
-.nav{max-width:var(--container);margin:10px auto 24px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center;align-items:center}
-.ticket{padding:9px 14px;border:2px dashed var(--cedar);border-radius:10px;
-  font-family:'Special Elite', monospace;text-decoration:none;color:var(--ink);
-  background:linear-gradient(180deg,#fffef8,var(--paper));box-shadow:0 1px 0 var(--cedar)}
-.ticket:hover{transform:translateY(-1px);box-shadow:0 2px 0 var(--cedar)}
+/* Remove any legacy ribbons/frames/sub-lines */
+.header-ribbon,.mast-subline,.mastframe,.ribbon{display:none !important}
+/* If an old sidebar/duplicate masthead exists, hide it */
+.mast-aside,.hero-aside,.site-rail,.sidebar-title{display:none !important}
 
-/* --- Cards / bulletin panels --- */
-.card{border:3px solid var(--ink);border-radius:var(--radius);background:#fffef8;box-shadow:0 2px 0 var(--ink)}
+/* ===== Nav pills under the plaque ===== */
+.flyer-nav{
+  display:flex;gap:14px;justify-content:center;flex-wrap:wrap;
+  padding:4px 16px 22px
+}
+.pill{
+  border:2px dashed #3a2d23;border-radius:12px;
+  padding:8px 14px;text-decoration:none;font-weight:600;
+  color:#2b231c;background:#efe8da;box-shadow:0 1px 0 #3a2d23;
+}
+.pill:hover{transform:translateY(-1px);box-shadow:0 2px 0 #3a2d23}
+
+/* ===== Cards / bulletin panels ===== */
+.card{
+  border:3px solid var(--ink);border-radius:var(--radius);
+  background:#fffef8;box-shadow:0 2px 0 var(--ink)
+}
 .card + .card{margin-top:18px}
-.card-header{padding:14px;border-bottom:2px solid var(--ink);
-  background:repeating-linear-gradient(90deg,#fffef8,#fffef8 5px,#fff 6px,#fff 7px)}
-.card-title{font-family:'Playfair Display', Georgia, serif;font-size:28px;margin:0;letter-spacing:1px}
-.card-meta{font-family:'Special Elite', monospace;color:var(--cedar);margin-top:6px;font-size:13px}
-
+.card-header{
+  padding:14px;border-bottom:2px solid var(--ink);
+  background:repeating-linear-gradient(90deg,#fffef8,#fffef8 5px,#fff 6px,#fff 7px)
+}
+.card-title{
+  font-family:'Playfair Display', Georgia, serif;
+  font-size:28px;margin:0;letter-spacing:1px
+}
+.card-meta{
+  font-family:'Special Elite', monospace;color:var(--cedar);
+  margin-top:6px;font-size:13px
+}
 .card-body{padding:18px;font-size:18px;line-height:1.75}
-.dropcap:first-letter{float:left;font-family:'Playfair Display', serif;font-size:64px;line-height:0.9;padding-right:10px;color:var(--pine);text-transform:uppercase}
+.dropcap:first-letter{
+  float:left;font-family:'Playfair Display', serif;font-size:64px;
+  line-height:.9;padding-right:10px;color:var(--pine);text-transform:uppercase
+}
 
-/* --- Sidebar note board --- */
-.note{border:2px solid var(--cedar);border-radius:var(--radius);background:#fff9f0;padding:14px;
-  font-family:'Special Elite', monospace;font-size:15px}
+/* ===== Sidebar notes ===== */
+.note{
+  border:2px solid var(--cedar);border-radius:var(--radius);
+  background:#fff9f0;padding:14px;
+  font-family:'Special Elite', monospace;font-size:15px
+}
 .note h4{margin:0 0 6px 0;font-size:16px;letter-spacing:1px}
 .note ul{margin:0;padding-left:18px}
 .note li{margin:6px 0}
 
-/* --- Ornament & footer --- */
+/* Ornament & footer */
 .orn{display:block;margin:12px auto 16px;height:14px;width:auto}
-.footer{max-width:var(--container);margin:16px auto 36px;padding:10px 14px;border-top:2px dashed var(--cedar);
-  color:var(--cedar);font-family:'Special Elite', monospace}
-
-/* --- Links --- */
-a{color:var(--ink)}
-a:hover{text-decoration:underline}
-
-/* --- Google Fonts --- */
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@600;700;800&family=Special+Elite&display=swap');
-
-/* ===== Masthead (single plaque) ===== */
-.masthead{
-  margin: 28px auto 18px;
-  display: flex;
-  justify-content: center;
-  padding: 0 16px;
+.footer{
+  max-width:var(--container);margin:16px auto 36px;padding:10px 14px;
+  border-top:2px dashed var(--cedar);color:var(--cedar);
+  font-family:'Special Elite', monospace
 }
 
-/* one big plaque, centered */
-.plaque{
-  width: min(1100px, 96vw);
-  background: #efe8da;               /* parchment-ish */
-  border: 6px solid #3a2d23;         /* dark trim */
-  border-radius: 22px;
-  box-shadow: 0 3px 0 #3a2d23, 0 10px 24px rgba(0,0,0,.12);
-  padding: 24px 28px 18px;
-  text-align: center;
-  position: relative;
+/* Minor spacing before first article card */
+main,.content,.page-body{margin-top:8px}
+
+/* Responsive tweaks */
+@media(max-width:640px){
+  .plaque{border-width:5px;border-radius:18px;padding:20px}
+  .plaque-tag{font-size:.9rem;letter-spacing:.10em}
+  .pill{padding:7px 12px}
 }
-
-/* make the logo fill the plaque neatly */
-.plaque-logo{
-  display: block;
-  width: 100%;
-  height: auto;
-  margin: 0 auto 6px;
-}
-
-/* small subline under the logo */
-.plaque-tag{
-  margin: 2px 0 0;
-  font-family: "Crimson Pro", Georgia, serif;
-  letter-spacing: .12em;
-  font-size: 0.9rem;
-  text-transform: none;
-  opacity: .85;
-}
-
-/* nav pills just under the plaque */
-.flyer-nav{
-  display: flex;
-  gap: 14px;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 6px 16px 22px;
-}
-
-.pill{
-  border: 2px dashed #3a2d23;
-  border-radius: 12px;
-  padding: 8px 14px;
-  text-decoration: none;
-  font-weight: 600;
-  color: #2b231c;
-  background: #efe8da;
-}
-.pill:hover{ transform: translateY(-1px); }
-
-/* ===== Remove the extra frame + 1920s line ===== */
-/* If your old layout had an outer frame/ribbon/subline, hide them: */
-.mastframe, .mast-subline, .ribbon, .header-ribbon { display: none !important; }
-
-/* ===== (Optional) Hide the duplicate sidebar header on the right ===== */
-/* If you see a second "The Blackwater Flyer" block on the right column, hide that container. */
-.mast-aside, .hero-aside, .site-rail, .sidebar-title { display: none !important; }
-
-/* spacing fix before first article card */
-main, .content, .page-body { margin-top: 8px; }
-
