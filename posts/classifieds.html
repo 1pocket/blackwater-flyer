@@ -1,6 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>The Classifieds · The Blackwater Flyer</title>
+  <!-- make sure this path matches your repo; the leading / works on Netlify -->
+  <link rel="stylesheet" href="/assets/css/style.css?v=flyer-1">
+  <meta name="description" content="Free to a good home, odd jobs, and other rail-yard scribbles.">
+</head>
+<body>
+
 <header class="masthead page-header-tight">
   <div class="plaque">
-    <h1>The Classifieds</h1>
+    <img src="/assets/img/logo.svg" alt="The Blackwater Flyer" class="plaque-logo">
+    <h1 class="visually-hidden">The Classifieds</h1>
   </div>
 </header>
 
@@ -8,7 +21,7 @@
   <a class="pill" href="/">Front Page</a>
   <a class="pill" href="/posts/first-dispatch.html">Latest Dispatch</a>
   <a class="pill" href="/posts/schedule.html">The Schedule</a>
-  <a class="pill" href="/posts/classifieds.html">The Classifieds</a>
+  <a class="pill is-active" aria-current="page" href="/posts/classifieds.html">The Classifieds</a>
   <a class="pill" href="/posts/letters.html">Letters to the Editor</a>
   <a class="pill" href="/posts/bigfoot-sightings.html">Bigfoot Sightings</a>
 </nav>
@@ -50,7 +63,7 @@
       <article class="note sky taped">
         <h3>HELP WANTED: Sasquatch Wrangler</h3>
         <p>Must run 5K in waders and keep secrets. Dental included (yours). Fringe benefits: fringe.</p>
-        <div class="meta">Apply: ranger station #3 — ask for “Mothman”</div>
+        <div class="meta">Apply: Ranger Station #3 — ask for “Mothman”</div>
       </article>
 
       <article class="note rose">
@@ -68,3 +81,11 @@
     </div>
   </section>
 </main>
+
+<footer class="footer">
+  © <span id="y"></span> The Blackwater Flyer
+</footer>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+
+</body>
+</html>
