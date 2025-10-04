@@ -131,3 +131,22 @@ main,.content,.page-body{margin-top:8px}
 /* If you kept the <p class="plaque-tag"> in HTML, hide it to avoid duplication */
 .plaque-tag{ display: none !important; }
 
+/* Remove the extra outer masthead border/background */
+.masthead {
+  margin: 28px auto 14px;
+  display: flex;
+  justify-content: center;
+  padding: 0 16px;
+  border: none !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+
+/* Make the inner plaque larger so it fills nicely */
+.plaque {
+  width: min(1150px, 98vw);  /* was 1100px */
+  padding: 36px 36px 28px;   /* more breathing room */
+  border-width: 6px;
+}
+
+
