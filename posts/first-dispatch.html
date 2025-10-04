@@ -3,25 +3,27 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>On Quiet Work & Loud Rivers — The Brooklyn Blackwater Flyer</title>
+  <title>On Quiet Work &amp; Loud Rivers — The Blackwater Flyer</title>
   <meta name="description" content="A beginner’s timetable for eccentric practicality.">
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
+
+  <!-- Single-plaque masthead (matches homepage) -->
   <header class="masthead">
-    <div class="masthead-inner">
-      <img src="/assets/img/logo.svg" alt="The Brooklyn Blackwater Flyer">
-      <div class="brand-block">
-        <h1 class="brand-title">The Brooklyn Blackwater Flyer</h1>
-        <div class="brand-sub smallcaps">River &amp; Rail Dispatches · Established in the Spirit of the 1920s</div>
-      </div>
+    <div class="plaque">
+      <img src="/assets/img/logo.svg" alt="The Blackwater Flyer" class="plaque-logo">
+      <!-- No extra strapline here; the SVG already includes it -->
     </div>
   </header>
 
-  <nav class="nav">
-    <a class="ticket" href="/">Front Page</a>
-    <span class="ticket">Dispatch</span>
-    <a class="ticket" href="#" title="Coming soon">Archive</a>
+  <!-- Ticket-style pills (same as homepage) -->
+  <nav class="flyer-nav">
+    <a href="/" class="pill">Front Page</a>
+    <a href="/dispatch/" class="pill">Latest Dispatch</a>
+    <a href="/schedule/" class="pill">The Schedule</a>
+    <a href="/classifieds/" class="pill">The Classifieds</a>
+    <a href="/letters/" class="pill">Letters to the Editor</a>
   </nav>
 
   <main class="container">
@@ -41,7 +43,7 @@
   </main>
 
   <footer class="footer">
-    © <span id="y"></span> The Brooklyn Blackwater Flyer
+    © <span id="y"></span> The Blackwater Flyer
   </footer>
   <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
