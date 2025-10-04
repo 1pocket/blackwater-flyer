@@ -116,3 +116,18 @@ main,.content,.page-body{margin-top:8px}
   .plaque-tag{font-size:.9rem;letter-spacing:.10em}
   .pill{padding:7px 12px}
 }
+
+/* Remove legacy masthead frame */
+.masthead{
+  margin: 28px auto 14px;
+  padding: 0 16px;
+  display: flex;
+  justify-content: center;
+  border: none !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+
+/* If you kept the <p class="plaque-tag"> in HTML, hide it to avoid duplication */
+.plaque-tag{ display: none !important; }
+
