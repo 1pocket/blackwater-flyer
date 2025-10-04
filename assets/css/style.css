@@ -222,3 +222,20 @@ main,.content,.page-body{margin-top:8px}
 @media (max-width:640px){
   .pill{padding:7px 12px}
 }
+
+/* Bigfoot CTA — green pill */
+.bf-cta{
+  display:inline-block;
+  padding:10px 16px;
+  border:2px solid var(--ink);
+  border-radius:18px;
+  background:var(--pine);
+  color:#fff;
+  text-decoration:none;
+  font-weight:700;
+  font-family:'Libre Baskerville', serif;
+  line-height:1;
+  box-shadow:4px 4px 0 rgba(0,0,0,.14);
+  transition:transform .08s ease, filter .12s ease;
+}
+.bf-cta:hover{ filter:brightness(1.06); transform:translateY(-1px) }
