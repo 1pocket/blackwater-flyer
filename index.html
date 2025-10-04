@@ -57,6 +57,61 @@
         </div>
       </div>
     </section>
+    <section class="bf-wrap" aria-label="Bigfoot feature">
+  <div class="bf-card">
+    <div class="bf-ink">
+      <h2 class="bf-hed">Bigfoot Sightings — Tucker County</h2>
+      <p class="bf-sub">Ranger logs, back-road hearsay, and other polite mysteries</p>
+      <p class="bf-txt">
+        Footprints like frying pans at the frostline. A spruce that took a step.
+        In a place where fog edits the river, we keep a ledger of the unconfirmed—
+        short dispatches filed from Davis, Thomas, Blackwater Falls, Canaan Valley, and Dolly Sods.
+      </p>
+      <a class="bf-cta" href="/posts/bigfoot-sightings.html">Open the Sightings Ledger</a>
+    </div>
+
+    <!-- Inline woodcut-style sketch (no external file needed) -->
+    <div class="bf-art" aria-hidden="true">
+      <svg viewBox="0 0 320 360" xmlns="http://www.w3.org/2000/svg" role="img">
+        <title>Bigfoot sketch</title>
+        <defs>
+          <filter id="roughen" x="-10%" y="-10%" width="120%" height="120%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="1" result="noise"/>
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="0.6"/>
+          </filter>
+        </defs>
+        <!-- Ground / trees (light pen lines) -->
+        <g stroke="#1C1C1A" stroke-width="1.2" fill="none" opacity="0.6" filter="url(#roughen)">
+          <path d="M10 300 C80 290, 120 310, 310 298"/>
+          <path d="M30 260 l8 -38 l8 38 m-8 -38 v78"/>
+          <path d="M280 248 l7 -30 l7 30 m-7 -30 v64"/>
+        </g>
+        <!-- Bigfoot silhouette (woodcut feel) -->
+        <g fill="#1C1C1A">
+          <!-- Back leg -->
+          <path d="M165 245 c-10 26 -8 42 6 60 8 10 30 10 42 3 4 -2 4 -9 -2 -12 -12 -6 -19 -15 -21 -26 -3 -16 -9 -25 -25 -25z"/>
+          <!-- Front leg -->
+          <path d="M138 240 c-9 16 -12 32 -8 50 3 14 2 24 -3 28 -6 4 -20 1 -29 -5 -14 -9 -16 -15 -7 -28 9 -15 10 -28 3 -46 -2 -6 34 -9 44 1z"/>
+          <!-- Torso / shoulder mass -->
+          <path d="M105 120 c-12 28 -9 51 10 74 10 12 11 18 3 28 -6 7 -8 15 -5 18 4 3 23 7 42 9 30 3 44 -2 64 -20 22 -19 31 -39 31 -63 0 -24 -9 -40 -29 -54 -28 -20 -55 -26 -87 -17 -12 3 -25 14 -29 25z"/>
+          <!-- Arm swing -->
+          <path d="M70 190 c-10 10 -8 21 9 46 12 19 27 28 36 25 9 -3 13 -12 10 -23 -3 -10 1 -24 9 -31 7 -8 12 -19 10 -25 -4 -11 -62 -5 -74 8z"/>
+          <!-- Head / slope -->
+          <path d="M160 100 c2 14 17 24 34 23 15 -1 26 -11 26 -21 0 -17 -21 -32 -45 -32 -14 0 -18 6 -15 30z"/>
+        </g>
+        <!-- Woodcut hatch marks -->
+        <g stroke="#1C1C1A" stroke-width="1" opacity=".28">
+          <path d="M120 150 l-22 8"/>
+          <path d="M132 172 l-26 10"/>
+          <path d="M186 170 l30 -8"/>
+          <path d="M170 200 l34 -10"/>
+          <path d="M110 210 l-28 10"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
 
     <aside>
       <div class="note">
