@@ -1,265 +1,171 @@
-/* === The Blackwater Flyer — 1920s bulletin / train + park ranger vibe === */
+/* =========================================================
+   THE BLACKWATER FLYER — Consolidated Stylesheet
+   (1920s bulletin / park-ranger vibe)
+   ========================================================= */
 
-/* Google Fonts first (must be before rules) */
+/* ---- Fonts ---- */
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@600;700;800&family=Special+Elite&display=swap');
 
+/* ---- Theme Tokens ---- */
 :root{
-  --ink:#1C1C1A;
-  --paper:#F5F1E6;      /* cream newsprint */
-  --pine:#2F5130;       /* ranger green */
-  --cedar:#4D3B2F;      /* signpost brown */
-  --accent:#9B3E2A;     /* barn red (sparingly) */
-  --radius:12px;
-  --radius-lg:22px;
-  --container:1040px;
+  --ink:#1C1C1A;           /* type / borders */
+  --paper:#F5F1E6;         /* page backdrop */
+  --pine:#2F5130;          /* ranger green */
+  --cedar:#4D3B2F;         /* signpost brown */
+  --accent:#9B3E2A;        /* barn red (sparingly) */
+  --radius:12px;           /* small radius */
+  --radius-lg:22px;        /* large radius */
+  --container:1040px;      /* content width */
 }
 
-/* Base */
+/* =========================================================
+   Base / Layout
+   ========================================================= */
 *{box-sizing:border-box}
 html,body{
-  margin:0;padding:0;background:var(--paper);color:var(--ink);
-  font-family:'Libre Baskerville', Georgia, 'Times New Roman', serif;line-height:1.65
+  margin:0; padding:0;
+  background:var(--paper); color:var(--ink);
+  font-family:'Libre Baskerville', Georgia, 'Times New Roman', serif;
+  line-height:1.65;
 }
 a{color:var(--ink)} a:hover{text-decoration:underline}
-.smallcaps{font-variant:small-caps;letter-spacing:.12em}
+.smallcaps{font-variant:small-caps; letter-spacing:.12em}
 
-/* Layout */
-.container{max-width:var(--container);margin:0 auto;padding:0 14px 40px}
-.grid{display:grid;grid-template-columns:1fr;gap:22px}
-@media(min-width:900px){.grid{grid-template-columns:1.2fr .8fr}}
+.container{max-width:var(--container); margin:0 auto; padding:0 14px 40px}
+.grid{display:grid; grid-template-columns:1fr; gap:22px}
+@media (min-width:900px){ .grid{grid-template-columns:1.2fr .8fr} }
 
-/* ===== Masthead (single plaque) ===== */
-.masthead{
-  margin:28px auto 14px;
-  display:flex;justify-content:center;padding:0 16px;
-}
-.plaque{
-  width:min(1100px,96vw);
-  background:#efe8da;                  /* parchment */
-  border:6px solid #3a2d23;            /* dark trim */
-  border-radius:var(--radius-lg);
-  box-shadow:0 3px 0 #3a2d23, 0 10px 24px rgba(0,0,0,.12);
-  padding:28px 28px 20px;
-  text-align:center;
-}
-.plaque-logo{display:block;width:100%;height:auto;margin:0 auto 8px}
-.plaque-tag{
-  margin:0;font-family:"Crimson Pro", Georgia, serif;
-  letter-spacing:.12em;font-size:.95rem;opacity:.85
-}
-
-/* Remove any legacy ribbons/frames/sub-lines */
-.header-ribbon,.mast-subline,.mastframe,.ribbon{display:none !important}
-/* If an old sidebar/duplicate masthead exists, hide it */
-.mast-aside,.hero-aside,.site-rail,.sidebar-title{display:none !important}
-
-/* ===== Nav pills under the plaque ===== */
-.flyer-nav{
-  display:flex;gap:14px;justify-content:center;flex-wrap:wrap;
-  padding:4px 16px 22px
-}
-.pill{
-  border:2px dashed #3a2d23;border-radius:12px;
-  padding:8px 14px;text-decoration:none;font-weight:600;
-  color:#2b231c;background:#efe8da;box-shadow:0 1px 0 #3a2d23;
-}
-.pill:hover{transform:translateY(-1px);box-shadow:0 2px 0 #3a2d23}
-
-/* ===== Cards / bulletin panels ===== */
-.card{
-  border:3px solid var(--ink);border-radius:var(--radius);
-  background:#fffef8;box-shadow:0 2px 0 var(--ink)
-}
-.card + .card{margin-top:18px}
-.card-header{
-  padding:14px;border-bottom:2px solid var(--ink);
-  background:repeating-linear-gradient(90deg,#fffef8,#fffef8 5px,#fff 6px,#fff 7px)
-}
-.card-title{
-  font-family:'Playfair Display', Georgia, serif;
-  font-size:28px;margin:0;letter-spacing:1px
-}
-.card-meta{
-  font-family:'Special Elite', monospace;color:var(--cedar);
-  margin-top:6px;font-size:13px
-}
-.card-body{padding:18px;font-size:18px;line-height:1.75}
-.dropcap:first-letter{
-  float:left;font-family:'Playfair Display', serif;font-size:64px;
-  line-height:.9;padding-right:10px;color:var(--pine);text-transform:uppercase
-}
-
-/* ===== Sidebar notes ===== */
-.note{
-  border:2px solid var(--cedar);border-radius:var(--radius);
-  background:#fff9f0;padding:14px;
-  font-family:'Special Elite', monospace;font-size:15px
-}
-.note h4{margin:0 0 6px 0;font-size:16px;letter-spacing:1px}
-.note ul{margin:0;padding-left:18px}
-.note li{margin:6px 0}
-
-/* Ornament & footer */
-.orn{display:block;margin:12px auto 16px;height:14px;width:auto}
-.footer{
-  max-width:var(--container);margin:16px auto 36px;padding:10px 14px;
-  border-top:2px dashed var(--cedar);color:var(--cedar);
-  font-family:'Special Elite', monospace
-}
-
-/* Minor spacing before first article card */
 main,.content,.page-body{margin-top:8px}
 
-/* Responsive tweaks */
-@media(max-width:640px){
-  .plaque{border-width:5px;border-radius:18px;padding:20px}
-  .plaque-tag{font-size:.9rem;letter-spacing:.10em}
-  .pill{padding:7px 12px}
-}
-
-/* Remove legacy masthead frame */
-.masthead{
-  margin: 28px auto 14px;
-  padding: 0 16px;
-  display: flex;
-  justify-content: center;
-  border: none !important;
-  background: none !important;
-  box-shadow: none !important;
-}
-
-/* If you kept the <p class="plaque-tag"> in HTML, hide it to avoid duplication */
-.plaque-tag{ display: none !important; }
-
-/* Remove the extra outer masthead border/background */
-.masthead {
-  margin: 28px auto 14px;
-  display: flex;
-  justify-content: center;
-  padding: 0 16px;
-  border: none !important;
-  background: none !important;
-  box-shadow: none !important;
-}
-
-/* Make the inner plaque larger so it fills nicely */
-.plaque {
-  width: min(1150px, 98vw);  /* was 1100px */
-  padding: 36px 36px 28px;   /* more breathing room */
-  border-width: 6px;
-}
-
-/* Remove the outer masthead frame so only the plaque shows */
-.masthead {
-  border: none !important;
-  background: none !important;
-  box-shadow: none !important;
-  padding: 0 16px;
-  margin: 28px auto 14px;
-  display: flex;
-  justify-content: center;
-}
-
-/* --- Use ONLY the inner frame baked into the SVG logo --- */
+/* =========================================================
+   Masthead — use ONLY the inner SVG plaque
+   ========================================================= */
 .masthead{
   margin:28px auto 14px;
   padding:0 16px;
-  display:flex;
-  justify-content:center;
-  border:none !important;
-  background:none !important;
-  box-shadow:none !important;
+  display:flex; justify-content:center;
+  border:none !important; background:none !important; box-shadow:none !important;
 }
-
-/* remove outer box from the wrapper */
 .plaque{
   width:min(1200px,98vw);
   padding:0 !important;
-  border:none !important;
-  background:none !important;
-  box-shadow:none !important;
+  border:none !important; background:none !important; box-shadow:none !important;
 }
+.plaque-logo{display:block; width:100%; height:auto; margin:0 auto}
+.plaque-tag{display:none !important} /* SVG already carries strapline */
 
-/* scale the SVG nicely */
-.plaque-logo{
-  display:block;
-  width:100%;
-  height:auto;
-  margin:0 auto;
+/* =========================================================
+   Nav — dotted “pill” chips under the plaque
+   ========================================================= */
+.flyer-nav{
+  display:flex; gap:14px; justify-content:center; flex-wrap:wrap;
+  padding:4px 16px 22px;
 }
-
-/* if any strapline text exists under the SVG, hide it (SVG already has one) */
-.plaque-tag{ display:none !important; }
-
-/* === Dispatch Card Styles (Blackwater Flyer) === */
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@600;700;800&family=Special+Elite&display=swap');
-
-:root{
-  --ink:#1C1C1A;
-  --paper:#F5F1E6;
-  --pine:#2F5130;
-  --cedar:#4D3B2F;
-  --accent:#9B3E2A;
-  --radius:12px;
-  --radius-lg:22px;
-}
-
-.dispatch-card{
-  background:var(--paper);
+.pill{
+  display:inline-block;
+  padding:8px 14px;
+  border:2px dashed var(--ink);
+  border-radius:14px;
+  text-decoration:none;
+  font-weight:600;
   color:var(--ink);
+  background:rgba(0,0,0,0); /* transparent */
+  box-shadow:0 1px 0 var(--ink);
+}
+.pill:hover{transform:translateY(-1px); box-shadow:0 2px 0 var(--ink)}
+/* Active (current page) */
+.pill[aria-current="page"], .pill.is-active{
+  border-style:solid; background:var(--pine); color:#fff;
+}
+
+/* =========================================================
+   Cards / Bulletin Panels
+   ========================================================= */
+.card{
+  border:3px solid var(--ink);
+  border-radius:var(--radius);
+  background:#fffef8;
+  box-shadow:0 2px 0 var(--ink);
+}
+.card + .card{margin-top:18px}
+.card-header{
+  padding:14px;
+  border-bottom:2px solid var(--ink);
+  background:repeating-linear-gradient(90deg,#fffef8,#fffef8 5px,#fff 6px,#fff 7px);
+}
+.card-title{
+  font-family:'Playfair Display', Georgia, serif;
+  font-size:28px; margin:0; letter-spacing:1px;
+}
+.card-meta{
+  font-family:'Special Elite', monospace;
+  color:var(--cedar); margin-top:6px; font-size:13px;
+}
+.card-body{padding:18px; font-size:18px; line-height:1.75}
+.dropcap:first-letter{
+  float:left;
+  font-family:'Playfair Display', serif;
+  font-size:64px; line-height:.9;
+  padding-right:10px; color:var(--pine); text-transform:uppercase;
+}
+
+/* =========================================================
+   Sidebar Notes
+   ========================================================= */
+.note{
+  border:2px solid var(--cedar);
+  border-radius:var(--radius);
+  background:#fff9f0;
+  padding:14px;
+  font-family:'Special Elite', monospace;
+  font-size:15px;
+}
+.note h4{margin:0 0 6px 0; font-size:16px; letter-spacing:1px}
+.note ul{margin:0; padding-left:18px}
+.note li{margin:6px 0}
+
+/* =========================================================
+   Dispatch Card (standalone posts)
+   ========================================================= */
+.dispatch-card{
+  background:var(--paper); color:var(--ink);
   border:2px solid var(--ink);
   border-radius:var(--radius-lg);
   box-shadow:6px 6px 0 rgba(0,0,0,.15);
   padding:1.25rem 1.25rem 1.5rem;
-  max-width:860px;
-  margin:1.25rem auto;
+  max-width:860px; margin:1.25rem auto;
 }
-
 .dispatch-title{
   font-family:'Playfair Display', serif;
-  font-weight:800;
-  font-size:clamp(1.4rem, 1.1rem + 1.2vw, 2rem);
+  font-weight:800; font-size:clamp(1.4rem, 1.1rem + 1.2vw, 2rem);
   margin:0 0 .25rem 0;
 }
-
 .dispatch-sub{
   font-family:'Special Elite', monospace;
-  color:#3f3b33;
-  font-size:.9rem;
-  margin:.1rem 0 1rem 0;
+  color:#3f3b33; font-size:.9rem; margin:.1rem 0 1rem 0;
 }
-
-.dispatch-meta{
-  font-family:'Libre Baskerville', serif;
-  font-size:.85rem;
-  color:#5a5346;
-  border-top:1px solid rgba(0,0,0,.18);
-  padding-top:.6rem;
-  margin-top:.4rem;
-}
-
-.dispatch-body{
-  font-family:'Libre Baskerville', serif;
-  line-height:1.7;
-  font-size:1rem;
-}
-
+.dispatch-body{font-family:'Libre Baskerville', serif; line-height:1.7; font-size:1rem}
 .dispatch-body p{margin:.8rem 0}
 .dispatch-body em{font-style:italic}
 .dispatch-body strong{font-weight:700}
-
-.dispatch-link{
-  display:inline-block;
-  margin-top:1rem;
+.dispatch-meta{
   font-family:'Libre Baskerville', serif;
-  text-decoration:none;
-  color:var(--pine);
+  font-size:.85rem; color:#5a5346;
+  border-top:1px solid rgba(0,0,0,.18);
+  padding-top:.6rem; margin-top:.4rem;
+}
+.dispatch-link{
+  display:inline-block; margin-top:1rem;
+  font-family:'Libre Baskerville', serif;
+  text-decoration:none; color:var(--pine);
   border-bottom:1px solid currentColor;
 }
 .dispatch-link:hover{color:var(--cedar)}
 
-/* === Bigfoot sidebar card (clean) === */
-.bf-wrap{max-width:1040px;margin:24px auto;padding:0 18px}
+/* =========================================================
+   Bigfoot Sidebar Card (clean)
+   ========================================================= */
+.bf-wrap{max-width:var(--container); margin:24px auto; padding:0 18px}
 .bf-aside{
   background:var(--paper);
   border:2px solid var(--ink);
@@ -269,63 +175,50 @@ main,.content,.page-body{margin-top:8px}
 }
 .bf-hed{
   margin:0 0 .25rem 0;
-  font-family:'Playfair Display',serif;
-  font-weight:800;
-  font-size:clamp(1.2rem,1rem + 1vw,1.6rem);
-  letter-spacing:.01em;
+  font-family:'Playfair Display',serif; font-weight:800;
+  font-size:clamp(1.2rem,1rem + 1vw,1.6rem); letter-spacing:.01em;
 }
 .bf-sub{
-  font-family:'Special Elite',monospace;
-  color:#3f3b33;
-  font-size:.92rem;
-  margin:.1rem 0 .8rem 0;
+  font-family:'Special Elite',monospace; color:#3f3b33;
+  font-size:.92rem; margin:.1rem 0 .8rem 0;
 }
-.bf-txt{font-family:'Libre Baskerville',serif;line-height:1.7;margin:.8rem 0}
+.bf-txt{font-family:'Libre Baskerville',serif; line-height:1.7; margin:.8rem 0}
 .bf-cta{
-  display:inline-block;margin-top:.5rem;
-  text-decoration:none;font-weight:700;
-  font-family:'Libre Baskerville',serif;
-  border:2px solid var(--ink);border-radius:12px;
-  padding:9px 12px;background:var(--pine);color:#fff;
-  box-shadow:4px 4px 0 rgba(0,0,0,.14)
+  display:inline-block; margin-top:.5rem; line-height:1;
+  text-decoration:none; font-weight:700; font-family:'Libre Baskerville',serif;
+  border:2px dashed var(--ink); border-radius:18px; padding:8px 14px;
+  background:transparent; color:var(--ink);
+  box-shadow:none;
 }
-.bf-cta:hover{filter:brightness(1.05)}
-
-/* stamp */
+.bf-cta:hover{border-style:solid; background:var(--pine); color:#fff}
+/* Stamp badge */
 .bf-stamp{
-  float:right;
-  margin:0 0 .4rem .8rem;
-  width:92px;height:92px;flex:none;
-  border:2px solid var(--ink);
-  border-radius:999px;
+  float:right; margin:0 0 .4rem .8rem;
+  width:92px; height:92px; flex:none;
+  border:2px solid var(--ink); border-radius:999px;
   background:repeating-linear-gradient(135deg,#0000 0 9px,rgba(0,0,0,.04) 9px 18px);
-  display:flex;align-items:center;justify-content:center;
+  display:flex; align-items:center; justify-content:center;
   box-shadow:4px 4px 0 rgba(0,0,0,.1);
 }
-.bf-stamp svg{width:62px;height:62px;display:block}
+.bf-stamp svg{width:62px; height:62px; display:block}
 
-/* small screens: drop the float and center the stamp */
+/* =========================================================
+   Ornament + Footer
+   ========================================================= */
+.orn{display:block; margin:12px auto 16px; height:14px; width:auto}
+.footer{
+  max-width:var(--container); margin:16px auto 36px; padding:10px 14px;
+  border-top:2px dashed var(--cedar); color:var(--cedar);
+  font-family:'Special Elite', monospace;
+}
+
+/* =========================================================
+   Responsive Tweaks
+   ========================================================= */
 @media (max-width:860px){
-  .bf-stamp{float:none;margin:0 auto .6rem auto}
+  .plaque{width:min(1200px,98vw)}
+  .bf-stamp{float:none; margin:0 auto .6rem}
 }
-
-
-/* Small screens */
-@media (max-width:860px){
-  .bf-card{grid-template-columns:1fr}
-  .bf-art{border-left:0; border-top:2px solid var(--ink)}
+@media (max-width:640px){
+  .pill{padding:7px 12px}
 }
-
-/* highlight current nav item */
-.pill[aria-current="page"], .pill.is-active{
-  border-style:solid;
-  background:var(--pine);
-  color:#fff;
-}
-
-
-
-
-
-
-
