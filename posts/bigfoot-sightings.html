@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bigfoot Sightings — The Blackwater Flyer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@700;800&family=Special+Elite&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== Blackwater Flyer Palette / Type ===== */
+    :root{
+      --ink:#1C1C1A;
+      --paper:#F5F1E6;
+      --pine:#2F5130;
+      --cedar:#4D3B2F;
+      --accent:#9B3E2A;
+      --muted:#5a5346;
+      --radius:12px;
+      --radius-lg:22px;
+      --ring: rgba(0,0,0,.12);
+      --max: 1040px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; background:var(--paper); color:var(--ink);
+      font-family:'Libre Baskerville', Georgia, serif; line-height:1.7;
+    }
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 60px}
+    header{
+      display:flex; align-items:flex-end; gap:16px; flex-wrap:wrap; margin-bottom:20px;
+      border-bottom:2px solid var(--ink); padding-bottom:10px;
+    }
+    .brand{
+      font-family:'Playfair Display', serif; font-weight:800;
+      font-size:clamp(1.5rem,1.1rem + 1.8vw,2.4rem); letter-spacing:.02em; margin:0;
+    }
+    .subtitle{
+      font-family:'Special Elite', monospace; color:#3f3b33; margin:2px 0 0 0; font-size:.95rem;
+    }
+    nav a{
+      text-decoration:none; color:var(--pine); border-bottom:1px solid currentColor; margin-right:14px;
+    }
+    nav a:hover{color:var(--cedar)}
+
+    /* ===== Controls ===== */
+    .controls{
+      display:grid; grid-template-columns: 1fr 1fr 1fr; gap:12px; margin:18px 0 22px;
+    }
+    .control{
+      background:#fff3; border:2px solid var(--ink); border-radius:var(--radius);
+      padding:10px 12px; box-shadow:4px 4px 0 var(--ring);
+    }
+    .control label{
+      display:block; font-size:.82rem; color:var(--muted); margin-bottom:6px;
+      font-family:'Special Elite', monospace;
+    }
+    .control input[type="search"],
+    .control select{
+      width:100%; background:transparent; border:1px dashed var(--ink); border-radius:8px;
+      padding:8px 10px; font-family:'Libre Baskerville', serif;
+    }
+
+    /* ===== Cards ===== */
+    .card{
+      background:var(--paper); border:2px solid var(--ink); border-radius:var(--radius-lg);
+      box-shadow:6px 6px 0 rgba(0,0,0,.15); padding:16px 16px 14px; margin:16px 0;
+    }
+    .card h2{
+      font-family:'Playfair Display', serif; font-weight:800; margin:.2rem 0 .2rem;
+      font-size:clamp(1.1rem,1rem + 1vw,1.55rem);
+    }
+    .meta{
+      display:flex; flex-wrap:wrap; gap:10px 16px; font-size:.9rem; color:var(--muted);
+      border-top:1px solid rgba(0,0,0,.18); padding-top:6px; margin-top:8px;
+    }
+    .chip{
+      display:inline-block; padding:2px 8px; border:1px solid var(--ink); border-radius:999px;
+      font-size:.8rem; font-family:'Special Elite', monospace;
+    }
+    .body p{margin:.9rem 0}
+    .kicker{
+      font-family:'Special Elite', monospace; color:#3f3b33; font-size:.9rem; margin:.2rem 0 .6rem;
+    }
+
+    /* ===== “Add a Sighting” (static) ===== */
+    .add{
+      margin-top:30px; padding:16px; border:2px solid var(--ink); border-radius:var(--radius-lg);
+      box-shadow:6px 6px 0 rgba(0,0,0,.12); background:#fff2;
+    }
+    .add h3{
+      font-family:'Playfair Display', serif; font-weight:800; margin:.2rem 0 8px;
+      font-size:clamp(1.05rem,1rem + .6vw,1.3rem);
+    }
+    .grid{
+      display:grid; grid-template-columns:1fr 1fr; gap:12px;
+    }
+    .grid .full{grid-column:1/-1}
+    .add label{display:block; font-size:.82rem; color:var(--muted); margin-bottom:6px; font-family:'Special Elite',monospace}
+    .add input, .add textarea, .add select{
+      width:100%; padding:10px; border:1px dashed var(--ink); border-radius:10px; background:transparent;
+      font-family:'Libre Baskerville', serif;
+    }
+    .add textarea{min-height:120px}
+    .btn{
+      display:inline-block; margin-top:10px; text-decoration:none; cursor:pointer;
+      border:2px solid var(--ink); border-radius:12px; padding:10px 14px; background:var(--pine);
+      color:#fff; font-weight:700; font-family:'Libre Baskerville', serif;
+      box-shadow:4px 4px 0 rgba(0,0,0,.14);
+    }
+    .btn:hover{filter:brightness(1.05)}
+    .note{font-size:.85rem; color:var(--muted); margin-top:6px}
+
+    /* ===== Responsive ===== */
+    @media (max-width:780px){
+      .controls{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1 class="brand">Bigfoot Sightings</h1>
+        <p class="subtitle">Selected notes from ranger logs & back-road hearsay, Tucker County WV</p>
+      </div>
+      <nav aria-label="breadcrumb">
+        <a href="/">Home</a>
+        <a href="/posts/">Dispatches</a>
+      </nav>
+    </header>
+
+    <!-- === Controls === -->
+    <section class="controls" aria-label="Filters">
+      <div class="control">
+        <label for="q">Search notes</label>
+        <input type="search" id="q" placeholder="tracks, laurel, river bend…" />
+      </div>
+      <div class="control">
+        <label for="area">Area</label>
+        <select id="area">
+          <option value="">All areas</option>
+          <option>Davis</option>
+          <option>Thomas</option>
+          <option>Blackwater Falls</option>
+          <option>Canaan Valley</option>
+          <option>Dolly Sods</option>
+        </select>
+      </div>
+      <div class="control">
+        <label for="year">Year</label>
+        <select id="year">
+          <option value="">Any year</option>
+          <option>2025</option>
+          <option>2024</option>
+          <option>2023</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- === Sightings List ===
+      HOW TO ADD ONE:
+      1) Duplicate a .card block below
+      2) Change data-area and data-year attributes
+      3) Update title/date/location and the prose in the .body
+    -->
+    <section id="list" aria-live="polite">
+
+      <article class="card" data-area="Canaan Valley" data-year="2025">
+        <div class="kicker">Report No. CV-07 • pre-dawn frostline</div>
+        <h2>Tracks at the Meadow’s Edge, Canaan Valley</h2>
+        <div class="body">
+          <p>Footprints the size of frying pans skirted the snowline behind the hay bales. Five toes, long stride, a habit of walking as if late for a meeting. The ranger says bears meander; these prints did not meander. They kept their hands in their pockets and didn’t look back.</p>
+        </div>
+        <div class="meta">
+          <span class="chip">Area: Canaan Valley</span>
+          <span class="chip">Date: Jan 18, 2025</span>
+          <span class="chip">Weather: 12°F, clear</span>
+        </div>
+      </article>
+
+      <article class="card" data-area="Blackwater Falls" data-year="2024">
+        <div class="kicker">Report No. BF-19 • tourists at the overlook</div>
+        <h2>Shadow in the Spray, Blackwater Falls</h2>
+        <div class="body">
+          <p>Mist kept misplacing the river, and in it a figure paused on the far bank—tall, easily mistaken for a spruce, until the spruce stepped away. No one spoke. Even the ravens adjusted their grammar.</p>
+        </div>
+        <div class="meta">
+          <span class="chip">Area: Blackwater Falls</span>
+          <span class="chip">Date: Sep 6, 2024</span>
+          <span class="chip">Time: 6:42 pm</span>
+        </div>
+      </article>
+
+      <article class="card" data-area="Thomas" data-year="2025">
+        <div class="kicker">Report No. TH-03 • alley behind the gallery</div>
+        <h2>The Borrowed Hat, Thomas</h2>
+        <div class="body">
+          <p>Someone taller than the barber’s mirror tried on a felt hat from the donation box, admired the fit in a darkened window, and left two quarters on the sill—a fair trade, said the barkeep, though the hat now smells like river stones.</p>
+        </div>
+        <div class="meta">
+          <span class="chip">Area: Thomas</span>
+          <span class="chip">Date: Mar 2, 2025</span>
+          <span class="chip">Moon: waning gibbous</span>
+        </div>
+      </article>
+
+      <article class="card" data-area="Dolly Sods" data-year="2023">
+        <div class="kicker">Report No. DS-11 • milepost 14</div>
+        <h2>Laurel Thicket Sermon, Dolly Sods</h2>
+        <div class="body">
+          <p>Heard a low baritone counting to four like a man learning a waltz. Wind joined on two and four. Nothing seen, but my coffee cooled in my hands as if the woods had taken a long breath in.</p>
+        </div>
+        <div class="meta">
+          <span class="chip">Area: Dolly Sods</span>
+          <span class="chip">Date: Oct 21, 2023</span>
+          <span class="chip">Witness: trail crew</span>
+        </div>
+      </article>
+
+      <article class="card" data-area="Davis" data-year="2024">
+        <div class="kicker">Report No. DV-08 • back road by the substation</div>
+        <h2>Bootprints with a Thumb, Davis</h2>
+        <div class="body">
+          <p>Not prints so much as suggestions—like someone wearing boots decided to grow a fifth toe halfway through. They led to the creek, then reconsidered, then were politely gone.</p>
+        </div>
+        <div class="meta">
+          <span class="chip">Area: Davis</span>
+          <span class="chip">Date: May 11, 2024</span>
+          <span class="chip">Conditions: light rain</span>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- === Add a Sighting (static) === -->
+    <section class="add" aria-label="Add a sighting">
+      <h3>Submit a Sighting (paper form style)</h3>
+      <div class="grid">
+        <div>
+          <label for="s-area">Area</label>
+          <select id="s-area">
+            <option>Canaan Valley</option>
+            <option>Blackwater Falls</option>
+            <option>Thomas</option>
+            <option>Davis</option>
+            <option>Dolly Sods</option>
+          </select>
+        </div>
+        <div>
+          <label for="s-date">Date</label>
+          <input id="s-date" type="date" />
+        </div>
+        <div class="full">
+          <label for="s-title">Title</label>
+          <input id="s-title" type="text" placeholder="e.g., Shadow on the boardwalk, Thomas" />
+        </div>
+        <div class="full">
+          <label for="s-notes">Notes</label>
+          <textarea id="s-notes" placeholder="Riddle-like field notes…"></textarea>
+        </div>
+      </div>
+      <button class="btn" type="button" id="fake-submit">Pin to Corkboard</button>
+      <div class="note">This is a display-only form on the static site. If you’d like real submissions, I can wire this to a tiny serverless endpoint or Netlify Forms later.</div>
+    </section>
+  </div>
+
+  <script>
+    // Simple filter & search for the static list
+    (function(){
+      const q = document.getElementById('q');
+      const area = document.getElementById('area');
+      const year = document.getElementById('year');
+      const list = document.getElementById('list');
+      const cards = Array.from(list.querySelectorAll('.card'));
+
+      function apply(){
+        const term = (q.value || '').toLowerCase();
+        const a = area.value;
+        const y = year.value;
+
+        cards.forEach(c=>{
+          const hay = c.textContent.toLowerCase();
+          const okQ = !term || hay.includes(term);
+          const okA = !a || c.dataset.area === a;
+          const okY = !y || c.dataset.year === y;
+          c.style.display = (okQ && okA && okY) ? '' : 'none';
+        });
+      }
+      q.addEventListener('input', apply);
+      area.addEventListener('change', apply);
+      year.addEventListener('change', apply);
+
+      // Fake submit for the static form
+      document.getElementById('fake-submit').addEventListener('click', ()=>{
+        alert('Thanks! On this static version, submissions aren’t stored. I can hook this to Netlify Forms or a tiny serverless function when you’re ready.');
+      });
+    })();
+  </script>
+</body>
+</html>
